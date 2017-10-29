@@ -45,10 +45,23 @@ class bracketedSuperscriptPattern(suberscriptPattern):
     pattern = re.compile('(?<!\\\)\^\{([^\s]+)\}')
     tag = 'sup'
 
+class codePattern(basePattern):
+    pattern = re.compile('(?<!\\\)\`(.+?)(?<!\\\)\`')
+
+    @classmethod
+    def parse(cls, string):
+        matchRes = cls.search(string)
+        if not matchRes:
+            return None
+
+        return parse(string[:matchRes.start()]) \
+               + ('<code>%s</code>' % (parse(matchRes.group(1)))) \
+               + parse(string[matchRes.end():])
+
 
 class imagePattern(basePattern):
     pattern = re.compile("(?<!\\\)<img: ([a-zA-Z\._-]+)>")
-    
+
     @classmethod
     def parse(cls, string):
         matchRes = cls.search(string)
@@ -61,7 +74,7 @@ class imagePattern(basePattern):
 
 class linkPattern(basePattern):
     pattern = re.compile("(?<!\\\)<link: ([a-zA-Z\._]+)>(.*?)</link>")
-    
+
     @classmethod
     def parse(cls, string):
         matchRes = cls.search(string)
@@ -88,6 +101,7 @@ class backslashPattern(basePattern):
                + parse(string[matchRes.end():])
 
 patterns = [
+    codePattern,
     bracketedSubscriptPattern,
     bracketedSuperscriptPattern,
     subscriptPattern,
@@ -101,7 +115,7 @@ patterns = [
 def parse(string):
     if not string:
         return ""
-    for pattern in patterns: 
+    for pattern in patterns:
         if pattern.search(string):
             return pattern.parse(string)
     return None
