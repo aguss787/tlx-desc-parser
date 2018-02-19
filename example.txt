@@ -84,5 +84,5 @@ link: <link: https://www.google.com>Ini ke google lho!</link>
 linkRender: <linkRender: somefile>TLX render folder</link>
 
 [Usage]
-python `parser.py example.txt`
+`python parser.py example.txt`
 output: statement.html
