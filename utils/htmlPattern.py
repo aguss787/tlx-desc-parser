@@ -60,7 +60,7 @@ class codePattern(basePattern):
 
 
 class imagePattern(basePattern):
-    pattern = re.compile("(?<!\\\)<img: ([a-zA-Z\._-]+)>")
+    pattern = re.compile("(?<!\\\)<img: ([^>]+)>")
 
     @classmethod
     def parse(cls, string):
@@ -73,7 +73,22 @@ class imagePattern(basePattern):
 
 
 class linkPattern(basePattern):
-    pattern = re.compile("(?<!\\\)<link: ([a-zA-Z\._]+)>(.*?)</link>")
+    pattern = re.compile("(?<!\\\)<link: ([^>]+)>(.*?)</link>")
+
+    @classmethod
+    def parse(cls, string):
+        matchRes = cls.search(string)
+        if not matchRes:
+            return None
+
+        fileName = matchRes.group(1)
+        linkText = matchRes.group(2)
+        return parse(string[:matchRes.start()]) \
+               + '<a href="%s">%s</a>' % (fileName, parse(linkText)) \
+               + parse(string[matchRes.end():])
+
+class linkRenderPattern(basePattern):
+    pattern = re.compile("(?<!\\\)<linkRender: ([^>]+)>(.*?)</link>")
 
     @classmethod
     def parse(cls, string):
@@ -108,6 +123,7 @@ patterns = [
     superscriptPattern,
     imagePattern,
     linkPattern,
+    linkRenderPattern,
     backslashPattern,
     basePattern,
 ]
