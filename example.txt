@@ -1,0 +1,88 @@
+Judul
+
+[Deskripsi]
+
+Budi bermain bola
+
+bola kuadrat = bola^2
+
+bola kuadrat kuadrat = bola^2^2
+
+no formating bola\^2
+
+all available format:
+- a_1
+- a^1
+- a_{word}
+- a^{word}
+
+dua line dengan breakline
+line kedua
+format seperti ini tidak dianjurkan
+gunakan paragraf
+
+pisahkan dengan sebuah baris kosong untuk pindah paragraf
+
+multi level bullet
+- level 1
+- level 1
+  - level 2
+  - level 2
+    - level 3
+    - level 3
+  - level 2
+    - level 3
+- level 1
+
+Numbering is not supported (yet)
+
+print as code: `this is marked as code`
+
+[Contoh Masukan]
+
+3
+1 2
+3 4
+5 5
+
+[Contoh Keluaran]
+
+123
+1231
+Test
+
+[Penjelasan]
+
+Selain tag:
+- Contoh Masukan
+- Contoh Keluaran
+- Batasan
+- Subtask
+- Subsoal
+akan dianggap sama dengan deskirpsi
+
+[Batasan]
+
+Subtask 1:
+- 1 <= N <= 10
+
+Subtask 3:
+- 1 <= N <= 10^10
+
+Special note:
+- Semua hal yang tidak di dalam bullet point pada tag:
+  - Batasan
+  - Subsoal
+  - Subtask
+- Tidak akan diformat
+- \\leq \\geq is not yet supported
+
+[Other use case]
+image: <img: test.jpg>
+image: <img: someimage.jpg>
+link: <link: https://www.google.com>Ini ke google lho!</link>
+linkRender: <linkRender: somefile>TLX render folder</link>
+
+[Usage]
+python `parser.py example.txt`
+output: statement.html
