@@ -79,12 +79,12 @@ Special note:
 
 [Other use case]
 image: <img: test.jpg>
-misal parser.py ada di './parser.py'
-test.jpg harus berada di './render/test.jpg'
+Sebut kita panggil 'python3 $PATHTOPARSER ./statement.txt'
+maka test.jpg ada di './render/test.jpg'
 
 image: <img: someimage.jpg>
-misal parser.py ada di './parser.py'
-someimage.jpg harus berada di './render/someimage.jpg'
+Sebut kita panggil python3 $PATHTOPARSER ./statement.txt
+maka someimage.jpg ada di ./render/someimage.jpg
 
 link: <link: https://www.google.com>Ini ke google lho!</link>
 linkRender: <linkRender: somefile>TLX render folder</link>
