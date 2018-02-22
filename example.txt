@@ -51,6 +51,19 @@ print as code: `this is marked as code`
 1231
 Test
 
+[Contoh Masukan 1]
+
+3
+1 2
+3 4
+5 5
+
+[Contoh Keluaran 1]
+
+123
+1231
+Test
+
 [Penjelasan]
 
 Selain tag:
@@ -79,10 +92,16 @@ Special note:
 
 [Other use case]
 image: <img: test.jpg>
+Sebut kita panggil 'python3 $PATHTOPARSER ./statement.txt'
+maka test.jpg ada di './render/test.jpg'
+
 image: <img: someimage.jpg>
+Sebut kita panggil python3 $PATHTOPARSER ./statement.txt
+maka someimage.jpg ada di ./render/someimage.jpg
+
 link: <link: https://www.google.com>Ini ke google lho!</link>
 linkRender: <linkRender: somefile>TLX render folder</link>
 
 [Usage]
-python `parser.py example.txt`
+`python3 parser.py example.txt`
 output: statement.html
