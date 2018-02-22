@@ -117,14 +117,14 @@ class backslashPattern(basePattern):
 
 patterns = [
     codePattern,
+    backslashPattern,
+    imagePattern,
+    linkPattern,
+    linkRenderPattern,
     bracketedSubscriptPattern,
     bracketedSuperscriptPattern,
     subscriptPattern,
     superscriptPattern,
-    imagePattern,
-    linkPattern,
-    linkRenderPattern,
-    backslashPattern,
     basePattern,
 ]
 
