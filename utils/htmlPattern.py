@@ -38,7 +38,7 @@ class boldPattern(suberscriptPattern):
     tag = 'b'
 
 class subscriptPattern(suberscriptPattern):
-    pattern = re.compile('(?<!\\\)\_([^\s]+)')
+    pattern = re.compile('(?<!\\\)\_([^\s])')
     tag = 'sub'
 
 class bracketedSubscriptPattern(suberscriptPattern):
@@ -46,7 +46,7 @@ class bracketedSubscriptPattern(suberscriptPattern):
     tag = 'sub'
 
 class superscriptPattern(suberscriptPattern):
-    pattern = re.compile('(?<!\\\)\^([^\s]+)')
+    pattern = re.compile('(?<!\\\)\^([^\s])')
     tag = 'sup'
 
 class bracketedSuperscriptPattern(suberscriptPattern):
