@@ -29,6 +29,14 @@ class suberscriptPattern(basePattern):
                + ('<%s>%s</%s>' % (cls.tag, parse(matchRes.group(1)), cls.tag)) \
                + parse(string[matchRes.end():])
 
+class italicPattern(suberscriptPattern):
+    pattern = re.compile('\\*([^\s]+)\\*')
+    tag = 'i'
+
+class boldPattern(suberscriptPattern):
+    pattern = re.compile('\\*\\*([^\s]+)\\*\\*')
+    tag = 'b'
+
 class subscriptPattern(suberscriptPattern):
     pattern = re.compile('(?<!\\\)\_([^\s]+)')
     tag = 'sub'
@@ -125,6 +133,8 @@ patterns = [
     bracketedSuperscriptPattern,
     subscriptPattern,
     superscriptPattern,
+    boldPattern,
+    italicPattern,
     basePattern,
 ]
 

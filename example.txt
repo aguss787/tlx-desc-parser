@@ -16,6 +16,10 @@ all available format:
 - a_{word}
 - a^{word}
 
+italic: *test*
+bold: **test**
+both: ***test***
+
 dua line dengan breakline
 line kedua
 format seperti ini tidak dianjurkan
